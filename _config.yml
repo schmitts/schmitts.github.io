@@ -1,0 +1,41 @@
+title: "My Modern Blog"
+email: "your-email@example.com"
+description: "A blog about modern web development."
+baseurl: ""
+url: "http://yourdomain.com"
+markdown: kramdown
+theme: minima
+plugins:
+  - jekyll-feed
+
+paginate: 5
+paginate_path: "/page:num/"
+permalink: /:categories/:year/:month/:day/:title/
+
+kramdown:
+  input: GFM
+  auto_ids: true
+  hard_wrap: false
+  syntax_highlighter: rouge
+
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor/bundle/
+  - vendor/cache/
+  - vendor/gems/
+  - vendor/ruby/
+
+author: "Your Name"
+social:
+  twitter: "your_twitter_handle"
+  github: "your_github_username"
+
+# Set the home page layout
+defaults:
+  - scope:
+      path: ""
+      type: pages
+    values:
+      layout: home

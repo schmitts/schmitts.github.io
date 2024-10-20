@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ site.title }}</title>
+    <link rel="stylesheet" href="{{ '/assets/css/styles.css' | relative_url }}">
+</head>
+<body>
+    <header>
+        <h1>{{ site.title }}</h1>
+        <p>{{ site.description }}</p>
+    </header>
+    <main>
+        {% for post in site.posts %}
+        {% assign columns_count = post.columns_content | size %}
+        {% assign columns_class = columns_count | append: '-columns' %}
+        <div class="blog-entry {{ columns_class }}">
+            <h2>{{ post.title }}</h2>
+            <div class="column-container">
+                {% for column in post.columns_content %}
+                <div class="column">
+                    <h3>{{ column.title }}</h3>
+                    <p>{{ column.content }}</p>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+        {% endfor %}
+    </main>
+    <footer>
+        <p>© 2024 Your Name. All rights reserved.</p>
+    </footer>
+</body>
+</html>

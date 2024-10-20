@@ -1,0 +1,192 @@
+:root {
+    --header-height: 60px; /* Define the header height variable */
+}
+
+/* Reset some default styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Basic styles */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #f4f4f4;
+    padding: 20px;
+    padding-top: var(--header-height); /* Space for fixed header */
+    padding-bottom: var(--header-height); /* Space for fixed footer */
+}
+
+/* Header styles */
+header {
+    background: #007bb5;
+    color: #fff;
+    padding: 10px 20px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: var(--header-height); /* Use the header height variable */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 1000;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 1.5em;
+}
+
+header p {
+    margin: 0;
+    font-size: 1em;
+}
+
+/* Main content styles */
+main {
+    margin: 20px 0;
+}
+
+.content {
+    display: grid;
+    grid-template-columns: 1fr 250px;
+    gap: 20px;
+}
+
+/* Blog entry styles */
+.blog-entries {
+    overflow: hidden;
+}
+
+.blog-entry {
+    margin-bottom: 20px;
+    padding: 20px;
+    background: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+.blog-entry h2 {
+    margin-bottom: 20px;
+    
+    color: #007bb5;
+    padding-top: calc(1 * var(--header-height)); /* Offset for fixed header */
+    margin-top: calc(-1 * var(--header-height)); /* Negative margin to offset the padding */
+}
+
+/* Column container styles */
+.column-container {
+    display: grid;
+    gap: 20px;
+}
+
+.2-columns .column-container {
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.3-columns .column-container {
+    grid-template-columns: repeat(3, 1fr);
+}
+
+/* Custom column styles */
+.column {
+    padding: 20px;
+    background-color: #e0f7fa;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.column h3 {
+    margin-bottom: 10px;
+    color: #007bb5;
+}
+
+/* Table of Contents (TOC) styles */
+.toc {
+    position: fixed;
+    top: var(--header-height); /* Below the fixed header */
+    right: 20px;
+    bottom: var(--header-height); /* Above the fixed footer */
+    overflow-y: auto;
+    background: #fff;
+    padding: 20px;
+    width: 250px;
+}
+
+.toc h2 {
+    margin-bottom: 10px;
+    color: #007bb5;
+}
+
+.toc ul {
+    list-style: none;
+    padding: 0;
+}
+
+.toc ul li {
+    margin-bottom: 10px;
+}
+
+.toc ul li a {
+    color: #007bb5;
+    text-decoration: none;
+}
+
+.toc ul li a:hover {
+    text-decoration: underline;
+}
+
+/* Footer styles */
+footer {
+    background: #007bb5;
+    color: #fff;
+    text-align: center;
+    padding: 10px 20px;
+    box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: var(--header-height); /* Use the header height variable */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+/* Responsive styles */
+@media (max-width: 600px) {
+    .column-container {
+        grid-template-columns: 1fr;
+    }
+
+    header {
+        flex-direction: column;
+        height: auto;
+        padding: 10px;
+    }
+
+    footer {
+        flex-direction: column;
+        height: auto;
+        padding: 10px;
+    }
+
+    .content {
+        grid-template-columns: 1fr;
+    }
+
+    .toc {
+        position: static;
+        width: 100%;
+        margin-top: 20px;
+    }
+}
