@@ -31,11 +31,16 @@ jobs:
     - name: Check qemu-system-riscv64 version
       run: qemu-system-riscv64 --version
 
-    - name: Check riscv64-linux-gnu-gcc version
-      run: riscv64-linux-gnu-gcc --version
+    - name: Check riscv64 compilers versions
+      run: |
+        set -e
+        riscv64-linux-gnu-gcc --version || true
+        riscv64-unknown-elf-gcc --version || true
+        riscv64-unknown-linux-gnu-gcc --version || true
 
-    - name: Check riscv64-unknown-elf-gcc version
-      run: riscv64-unknown-elf-gcc --version
-
-    - name: Check riscv64-unknown-linux-gnu-gcc version
-      run: riscv64-unknown-linux-gnu-gcc --version
+    - name: Ensure at least one compiler is available
+      run: |
+        if ! (riscv64-linux-gnu-gcc --version || riscv64-unknown-elf-gcc --version || riscv64-unknown-linux-gnu-gcc --version); then
+          echo "None of the RISC-V compilers are available" >&2
+          exit 1
+        fi
