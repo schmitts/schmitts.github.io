@@ -16,8 +16,6 @@
         <div class="content">
             <div class="blog-entries">
 	      {% for post in site.posts %}
-	      {% assign columns_count = post.columns_content | size %}
-	      {% assign columns_class = columns_count | append: '-columns' %}
 	      <div class="blog-entry {{ columns_class }}">
                 <div class="entry-header">
                   <h2 id="{{ post.url | slugify }}">{{ post.title }}</h2>
