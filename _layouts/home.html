@@ -19,7 +19,10 @@
 	      {% assign columns_count = post.columns_content | size %}
 	      {% assign columns_class = columns_count | append: '-columns' %}
 	      <div class="blog-entry {{ columns_class }}">
-		<h2 id="{{ post.url | slugify }}">{{ post.title }}</h2>
+                <div class="entry-header">
+                  <h2 id="{{ post.url | slugify }}">{{ post.title }}</h2>
+                  <p class="post-date">{{ post.date | date: "%B %d, %Y" }}</p>
+                </div>
 		<div class="column-container" style="grid-template-columns: repeat({{ columns_count }}, 1fr);">
 		  {% for column in post.columns_content %}
 		  <div class="column">

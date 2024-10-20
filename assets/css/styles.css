@@ -80,14 +80,14 @@ main {
 }
 
 .blog-entry h2 {
-    margin-bottom: 20px;
+    margin-bottom: 0;
     color: #007bb5;
     padding-top: var(--header-height); /* Offset for fixed header */
     margin-top: calc(-1 * var(--header-height)); /* Negative margin to offset the padding */
 }
 
 .post-date {
-    margin-bottom: 20px;
+    margin-left: 20px;
     color: #666;
     font-size: 0.9em;
 }
