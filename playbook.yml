@@ -5,10 +5,19 @@
   vars:
     common_packages:
       - git
+      - gcc-riscv64-linux-gnu
+      - binutils-riscv64-linux-gnu
     redhat_packages:
       - bind-utils
+      - qemu-system-x86
     debian_packages:
       - bind9-utils
+      - qemu-system-misc
+    arch_packages:
+      - riscv64-linux-gnu-binutils
+      - riscv64-linux-gnu-gcc
+      - riscv64-linux-gnu-gdb
+      - qemu-emulators-full
 
   tasks:
     - name: Install common packages on all distributions
@@ -28,3 +37,9 @@
         state: present
         update_cache: yes
       when: ansible_facts['os_family'] == 'Debian'
+
+    - name: Install Arch-specific packages
+      ansible.builtin.pacman:
+        name: "{{ arch_packages }}"
+        state: present
+      when: ansible_facts['os_family'] == 'Archlinux'
