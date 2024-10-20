@@ -73,12 +73,23 @@ main {
     border-radius: 8px;
 }
 
+.entry-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
 .blog-entry h2 {
     margin-bottom: 20px;
-    
     color: #007bb5;
-    padding-top: calc(1 * var(--header-height)); /* Offset for fixed header */
+    padding-top: var(--header-height); /* Offset for fixed header */
     margin-top: calc(-1 * var(--header-height)); /* Negative margin to offset the padding */
+}
+
+.post-date {
+    margin-bottom: 20px;
+    color: #666;
+    font-size: 0.9em;
 }
 
 /* Column container styles */
@@ -87,15 +98,6 @@ main {
     gap: 20px;
 }
 
-.2-columns .column-container {
-    grid-template-columns: repeat(2, 1fr);
-}
-
-.3-columns .column-container {
-    grid-template-columns: repeat(3, 1fr);
-}
-
-/* Custom column styles */
 .column {
     padding: 20px;
     background-color: #e0f7fa;
@@ -106,6 +108,20 @@ main {
 .column h3 {
     margin-bottom: 10px;
     color: #007bb5;
+}
+
+/* List styles */
+.column ul, .column ol {
+    padding-left: 20px; /* Adjust padding to align bullet points */
+    margin-left: 0; /* Remove default margin */
+}
+
+/* Single column content styles */
+.single-column-content {
+    padding: 20px;
+    background-color: #e0f7fa;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 /* Table of Contents (TOC) styles */

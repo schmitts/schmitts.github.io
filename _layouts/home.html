@@ -15,22 +15,21 @@
     <main>
         <div class="content">
             <div class="blog-entries">
-
-                {% for post in site.posts %}
-                {% assign columns_count = post.columns_content | size %}
-                {% assign columns_class = columns_count | append: '-columns' %}
-                <div class="blog-entry {{ columns_class }}   ">
-                    <h2 id="{{ post.url | slugify }}">{{ post.title }}</h2>
-                    <div class="column-container">
-                        {% for column in post.columns_content %}
-                        <div class="column">
-                            <h3>{{ column.title }}</h3>
-                            <p>{{ column.content }}</p>
-                        </div>
-                        {% endfor %}
-                    </div>
-                </div>
-                {% endfor %}
+	      {% for post in site.posts %}
+	      {% assign columns_count = post.columns_content | size %}
+	      {% assign columns_class = columns_count | append: '-columns' %}
+	      <div class="blog-entry {{ columns_class }}">
+		<h2 id="{{ post.url | slugify }}">{{ post.title }}</h2>
+		<div class="column-container" style="grid-template-columns: repeat({{ columns_count }}, 1fr);">
+		  {% for column in post.columns_content %}
+		  <div class="column">
+		    <h3>{{ column.title }}</h3>
+		    {{ column.content | markdownify }}
+		  </div>
+		  {% endfor %}
+		</div>
+	      </div>
+	      {% endfor %}
             </div>
             <aside class="toc">
                 <h2>Table of Contents</h2>
