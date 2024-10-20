@@ -1,0 +1,26 @@
+name: Lab Tools
+
+on: [push, pull_request]
+
+jobs:
+  build:
+    strategy:
+      matrix:
+        os: [ubuntu-latest, debian-latest, fedora-latest]
+    runs-on: ${{ matrix.os }}
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Install Ansible
+      run: |
+        if [[ "${{ matrix.os }}" == *"ubuntu"* || "${{ matrix.os }}" == *"debian"* ]]; then
+          sudo apt-get update
+          sudo apt-get install -y ansible
+        elif [[ "${{ matrix.os }}" == *"fedora"* ]]; then
+          sudo dnf install -y ansible
+        fi
+
+    - name: Run Ansible playbook
+      run: ansible-playbook playbook.yml
