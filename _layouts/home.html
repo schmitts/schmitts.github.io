@@ -23,7 +23,7 @@
                   <h2 id="{{ post.url | slugify }}">{{ post.title }}</h2>
                   <p class="post-date">{{ post.date | date: "%B %d, %Y" }}</p>
                 </div>
-		<div class="column-container" style="grid-template-columns: repeat({{ columns_count }}, 1fr);">
+		<div class="column-container">
 		  {% for column in post.columns_content %}
 		  <div class="column">
 		    <h3>{{ column.title }}</h3>

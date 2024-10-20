@@ -96,6 +96,7 @@ main {
 .column-container {
     display: grid;
     gap: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Responsive columns */
 }
 
 .column {
@@ -181,7 +182,7 @@ footer {
 /* Responsive styles */
 @media (max-width: 600px) {
     .column-container {
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr; /* Stack columns vertically on small screens */
     }
 
     header {
