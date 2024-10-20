@@ -44,3 +44,11 @@ jobs:
           echo "None of the RISC-V compilers are available" >&2
           exit 1
         fi
+
+    - name: Clone xv6-labs-2024 repository
+      run: git clone git://g.csail.mit.edu/xv6-labs-2024
+
+    - name: Build xv6 with QEMU
+      run: |
+        cd xv6-labs-2024
+        make qemu
