@@ -1,4 +1,5 @@
 #!/usr/bin/expect
+log_file qemu.log
 spawn make qemu
 expect "$ "
 

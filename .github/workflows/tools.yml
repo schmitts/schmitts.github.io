@@ -52,3 +52,4 @@ jobs:
       run: |
         cd xv6-labs-2024
         ../scripts/run_qemu.expect
+        cat qemu.log
