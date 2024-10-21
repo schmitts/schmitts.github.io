@@ -53,7 +53,7 @@ jobs:
 
     - name: Set up ccache
       run: |
-        ccache stats
+        ccache -s
         ln -s $(which ccache) /usr/local/bin/riscv64-linux-gnu-gcc
         ls -l /usr/local/bin/riscv64-linux-gnu-gcc
 
