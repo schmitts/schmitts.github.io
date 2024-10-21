@@ -1,4 +1,5 @@
 #!/usr/bin/expect -f
+set timeout 120
 exp_internal 1
 
 log_file qemu.log
