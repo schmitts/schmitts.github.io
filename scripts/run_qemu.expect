@@ -7,7 +7,7 @@ exp_internal 1
 
 log_file qemu.log
 
-spawn -nottycopy qemu-system-riscv64\
+spawn qemu-system-riscv64\
     -machine virt\
     -bios none\
     -kernel kernel/kernel\
