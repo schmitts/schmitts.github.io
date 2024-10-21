@@ -6,13 +6,13 @@ jobs:
   build:
     strategy:
       matrix:
-        #os: [ubuntu-latest, debian-latest, fedora-latest, archlinux-latest]
-        os: [ubuntu-latest]
-    runs-on: ${{ matrix.os }}
+        os: [ubuntu-latest, debian-latest, fedora-latest, archlinux-latest]
+    runs-on: ubuntu-latest
+    container: ${{ matrix.os }}
 
     steps:
     - name: Checkout repository
-      uses: actions/checkout@v2
+      uses: actions/checkout
 
     - name: Install Ansible
       run: |
@@ -51,11 +51,12 @@ jobs:
     - name: Run xv6 with QEMU
       run: |
         cd xv6-labs-2024
+        make qemu
         ../scripts/run_qemu.expect
         cat qemu.log
 
     - name: Upload artifact
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact
       with:
         name: xv6-output
         path: xv6-labs-2024/qemu.log
