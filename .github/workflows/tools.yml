@@ -4,11 +4,11 @@ on: [push, pull_request]
 
 jobs:
   build:
-    strategy:
-      matrix:
-        container: ["ubuntu:latest", "debian:latest", "fedora:latest", "archlinux:latest"]
+#    strategy:
+#      matrix:
+#        container: ["ubuntu:latest", "debian:latest", "fedora:latest", "archlinux:latest"]
     runs-on: ubuntu-latest
-    container: ${{ matrix.container }}
+#    container: ${{ matrix.container }}
 
     steps:
     - name: Checkout repository
