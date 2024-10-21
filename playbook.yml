@@ -6,6 +6,7 @@
     common_packages:
       - git
       - expect
+      - bc
       - gcc-riscv64-linux-gnu
       - binutils-riscv64-linux-gnu
     redhat_packages:
