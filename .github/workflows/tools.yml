@@ -72,9 +72,10 @@ jobs:
         make fs.img
 
     - name: Run xv6
+      shell: bash
       run: |
         cd xv6-labs-2024
-        unbuffer ../scripts/run_qemu.expect
+        ../scripts/run_qemu.expect
         cat qemu.log
 
     - name: Upload artifact
