@@ -6,9 +6,9 @@ jobs:
   build:
     strategy:
       matrix:
-        os: [ubuntu-latest, debian-latest, fedora-latest, archlinux-latest]
+        container: [ubuntu:latest, debian:latest, fedora:latest, archlinux:latest]
     runs-on: ubuntu-latest
-    container: ${{ matrix.os }}
+    container: ${{ matrix.container }}
 
     steps:
     - name: Checkout repository
