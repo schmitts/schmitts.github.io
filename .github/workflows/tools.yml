@@ -73,7 +73,7 @@ jobs:
 
     - name: Run xv6
       working-directory: xv6-labs-2024
-      run: ../scripts/run_qemu.expect
+      run: strace qemu-system-riscv64 -machine virt -bios none -kernel kernel/kernel -m 128M -smp 3 -nographic -global virtio-mmio.force-legacy=false -drive file=fs.img,if=none,format=raw,id=x0 -device virtio-blk-device,drive=x0,bus=virtio-mmio-bus.0
 
     - name: Upload artifact
       uses: actions/upload-artifact@v4
