@@ -61,7 +61,7 @@ jobs:
     - name: Run xv6
       run: |
         cd xv6-labs-2024
-        bash -c ../scripts/run_qemu.expect
+        ../scripts/run_qemu.sh
         cat qemu.log
 
     - name: Upload artifact
