@@ -10,7 +10,7 @@ expect "$ "
 
 send "ls\n"
 
-#expect "$ "
+expect "$ "
 
-#send "\01x"
-#expect eof
+send "\01x"
+expect eof
