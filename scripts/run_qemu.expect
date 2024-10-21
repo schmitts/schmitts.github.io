@@ -1,20 +1,14 @@
-#!/usr/bin/expect
+#!/usr/bin/expect -f
 log_file qemu.log
 
-spawn bc
+spawn make qemu -serial mon:stdio
 
-expect "For details type `warranty'."
+expect "$ "
 
-send "1+1\n"
-send "quit"
+send "ls\n"
+expect "$ "
 
-#spawn make qemu
-#expect "$ "
-#
-#send "ls\n"
-#expect "$ "
-#
-#send "\01x"
-#expect eof
+send "\01x"
+expect eof
 
 
