@@ -60,6 +60,7 @@ jobs:
       run: |
         export PATH="/usr/local/bin:$PATH"
         cd xv6-labs-2024
+        echo $PATH
         which riscv64-linux-gnu-gcc
         make kernel/kernel
 
