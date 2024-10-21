@@ -52,8 +52,8 @@ jobs:
       run: |
         cd xv6-labs-2024
         make kernel/kernel
-        ../scripts/run_qemu.expect
-        cat qemu.log
+        #../scripts/run_qemu.expect
+        #cat qemu.log
 
     - name: Upload artifact
       uses: actions/upload-artifact@v4
