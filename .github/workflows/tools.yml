@@ -58,25 +58,22 @@ jobs:
         ls -l /usr/local/bin/riscv64-linux-gnu-gcc
 
     - name: Build kernel
+      working-directory: xv6-labs-2024
       run: |
         export PATH="/usr/local/bin:$PATH"
-        cd xv6-labs-2024
         echo $PATH
         which riscv64-linux-gnu-gcc
         make kernel/kernel
 
     - name: Build fs
+      working-directory: xv6-labs-2024
       run: |
         export PATH="/usr/local/bin:$PATH"
-        cd xv6-labs-2024
         make fs.img
 
     - name: Run xv6
-      shell: bash
-      run: |
-        cd xv6-labs-2024
-        ../scripts/run_qemu.expect
-        cat qemu.log
+      working-directory: xv6-labs-2024
+      run: ../scripts/run_qemu.expect
 
     - name: Upload artifact
       uses: actions/upload-artifact@v4
