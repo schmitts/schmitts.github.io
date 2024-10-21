@@ -48,10 +48,10 @@ jobs:
     - name: Clone xv6-labs-2024 repository
       run: git clone --depth 1 git://g.csail.mit.edu/xv6-labs-2024
 
-    - name: ccache
-      uses: hendrikmuhs/ccache-action@v1.2
-      with:
-        create-symlink: true
+    - name: Inject ccache
+      run: |
+        export PATH="/usr/local/bin:$PATH"
+        ln -s ccache /usr/local/bin/riscv64-linux-gnu-gcc
 
     - name: Build kernel
       run: |
