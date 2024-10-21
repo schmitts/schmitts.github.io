@@ -53,3 +53,9 @@ jobs:
         cd xv6-labs-2024
         ../scripts/run_qemu.expect
         cat qemu.log
+
+    - name: Upload artifact
+      uses: actions/upload-artifact@v3
+      with:
+        name: xv6-output
+        path: xv6-labs-2024/qemu.log
