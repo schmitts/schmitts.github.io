@@ -53,6 +53,11 @@ jobs:
         cd xv6-labs-2024
         make kernel/kernel
 
+    - name: Build fs
+      run: |
+        cd xv6-labs-2024
+        make fs.img
+
     - name: Run xv6
       run: |
         cd xv6-labs-2024
