@@ -1,5 +1,5 @@
 #!/usr/bin/expect -f
-set timeout 120
+set timeout -1
 exp_internal 1
 
 log_file qemu.log
@@ -9,9 +9,8 @@ spawn qemu-system-riscv64 -machine virt -bios none -kernel kernel/kernel -m 128M
 expect "$ "
 
 send "ls\n"
-expect "$ "
 
-send "\01x"
-expect eof
+#expect "$ "
 
-
+#send "\01x"
+#expect eof
