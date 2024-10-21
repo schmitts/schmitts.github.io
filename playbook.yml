@@ -5,6 +5,7 @@
   vars:
     common_packages:
       - git
+      - expect
       - gcc-riscv64-linux-gnu
       - binutils-riscv64-linux-gnu
     redhat_packages:

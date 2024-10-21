@@ -46,9 +46,9 @@ jobs:
         fi
 
     - name: Clone xv6-labs-2024 repository
-      run: git clone git://g.csail.mit.edu/xv6-labs-2024
+      run: git clone --depth 1 git://g.csail.mit.edu/xv6-labs-2024
 
-    - name: Build xv6 with QEMU
+    - name: Run xv6 with QEMU
       run: |
         cd xv6-labs-2024
-        make qemu
+        ../scripts/run_qemu.expect

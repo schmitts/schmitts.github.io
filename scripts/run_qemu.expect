@@ -1,0 +1,9 @@
+#!/usr/bin/expect
+spawn make qemu
+expect "$ "
+
+send "ls\n"
+expect "$ "
+
+send "\01x"
+expect eof
