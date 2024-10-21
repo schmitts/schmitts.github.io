@@ -51,19 +51,21 @@ jobs:
     - name: ccache
       uses: hendrikmuhs/ccache-action@v1.2
 
-    - name: Inject ccache
+    - name: Set up ccache
       run: |
-        export PATH="/usr/local/bin:$PATH"
         ln -s ccache /usr/local/bin/riscv64-linux-gnu-gcc
+        ls -l /usr/local/bin/riscv64-linux-gnu-gcc
 
     - name: Build kernel
       run: |
+        export PATH="/usr/local/bin:$PATH"
         cd xv6-labs-2024
         which riscv64-linux-gnu-gcc
         make kernel/kernel
 
     - name: Build fs
       run: |
+        export PATH="/usr/local/bin:$PATH"
         cd xv6-labs-2024
         make fs.img
 
