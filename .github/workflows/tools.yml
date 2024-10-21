@@ -53,7 +53,7 @@ jobs:
 
     - name: Set up ccache
       run: |
-        ln -s ccache /usr/local/bin/riscv64-linux-gnu-gcc
+        ln -s $(which ccache) /usr/local/bin/riscv64-linux-gnu-gcc
         ls -l /usr/local/bin/riscv64-linux-gnu-gcc
 
     - name: Build kernel
