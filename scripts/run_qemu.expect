@@ -18,7 +18,7 @@ spawn qemu-system-riscv64\
 
 expect "$ "
 
-send -s "ls\n"
+send -s "ls\r"
 
 expect "$ "
 
