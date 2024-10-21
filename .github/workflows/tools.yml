@@ -51,7 +51,7 @@ jobs:
     - name: Run xv6 with QEMU
       run: |
         cd xv6-labs-2024
-        make qemu
+        make kernel/kernel
         ../scripts/run_qemu.expect
         cat qemu.log
 
