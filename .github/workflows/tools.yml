@@ -48,12 +48,15 @@ jobs:
     - name: Clone xv6-labs-2024 repository
       run: git clone --depth 1 git://g.csail.mit.edu/xv6-labs-2024
 
-    - name: Run xv6 with QEMU
+    - name: Build kernel
       run: |
         cd xv6-labs-2024
         make kernel/kernel
-        #../scripts/run_qemu.expect
-        #cat qemu.log
+
+    - name: Run xv6
+      run: |
+        ../scripts/run_qemu.expect
+        cat qemu.log
 
     - name: Upload artifact
       uses: actions/upload-artifact@v4
